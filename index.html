@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+
+
+
+<meta charset="UTF-8">
+<title>Sistema de Referidos</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<div id="auth">
+<h2>Iniciar sesión</h2>
+<input id="email" placeholder="Correo">
+<input id="password" type="password" placeholder="Contraseña">
+<button onclick="login()">Entrar</button>
+
+
+<img src="Logo vacolor.png" alt="Logo Vacolor" class="ajustable">
+
+
+
+
+</div>
+
+<br><br><br><br><br><br>
+
+<div id="app" style="display:none;">
+<h1>Buscador de Clientes</h1>
+
+
+<div id="buscador-principal">
+  <input type="text" id="buscador-input" placeholder="Buscar por nombre o teléfono" />
+  <button onclick="buscarCliente()">Buscar</button>
+
+  <div id="resultado-busqueda" style="margin-top: 1em;"></div>
+</div>
+
+
+<h2>Registrar cliente</h2>
+<input id="nombre" placeholder="Nombre completo">
+<input id="telefono" placeholder="Teléfono">
+<input id="referidor" placeholder="Nombre/Teléfono referidor (opcional)">
+<button onclick="registrarCliente()">Registrar</button>
+
+<div id="pregunta-regalo" style="display:none; margin-top: 20px;">
+  <p>¿Se reclamó el regalo?</p>
+  <button id="btn-regalo-si">Sí</button>
+  <button id="btn-regalo-no">No</button>
+</div>
+
+ 
+<br>---------------------------------------------------------------------------------------------<br>
+
+
+
+ <!-- Listado clientes con referidos -->
+<div style="margin-bottom: 20px;">
+  <button onclick="toggleListado('referidos')">Mostrar / Ocultar clientes con referidos</button>
+  <div id="listado-referidos" style="display:none; margin-top: 10px; margin-bottom: 40px;">
+    <h3>Clientes con referidos</h3>
+    <input id="buscar-referidos" type="text" placeholder="Buscar por nombre o teléfono" />
+    <button onclick="filtrarListado('referidos')">Buscar</button>
+    <div id="resultado-busqueda-referidos" style="border: 1px solid #ccc; margin-top: 10px; padding: 10px;"></div>
+    <table id="tabla-referidos" border="1" cellpadding="5" cellspacing="0" style="margin-top: 20px; width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Referidos</th>
+          <th>Descuento</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Listado clientes con regalo pendiente -->
+<div style="margin-bottom: 20px;">
+  <button onclick="toggleListado('regalo')">Mostrar / Ocultar clientes con regalo pendiente</button>
+  <div id="listado-regalo" style="display:none; margin-top: 10px; margin-bottom: 40px;">
+    <h3>Clientes con regalo pendiente</h3>
+    <input id="buscar-regalo" type="text" placeholder="Buscar por nombre o teléfono" />
+    <button onclick="filtrarListado('regalo')">Buscar</button>
+    <div id="resultado-busqueda-regalo" style="border: 1px solid #ccc; margin-top: 10px; padding: 10px;"></div>
+    <table id="tabla-regalo" border="1" cellpadding="5" cellspacing="0" style="margin-top: 20px; width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Estado Regalo</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Listado clientes con descuento máximo -->
+<div style="margin-bottom: 20px;">
+  <button onclick="toggleListado('descuento')">Mostrar / Ocultar clientes con descuento máximo</button>
+  <div id="listado-descuento" style="display:none; margin-top: 10px; margin-bottom: 40px;">
+    <h3>Clientes con descuento máximo acumulado</h3>
+    <input id="buscar-descuento" type="text" placeholder="Buscar por nombre o teléfono" />
+    <button onclick="filtrarListado('descuento')">Buscar</button>
+    <div id="resultado-busqueda-descuento" style="border: 1px solid #ccc; margin-top: 10px; padding: 10px;"></div>
+    <table id="tabla-descuento" border="1" cellpadding="5" cellspacing="0" style="margin-top: 20px; width: 100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Teléfono</th>
+          <th>Descuento</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Botón para mostrar/ocultar listado completo -->
+<button id="btnListadoCompleto" onclick="toggleListadoCompleto()">Mostrar/Ocultar Listado Completo</button>
+
+<!-- Contenedor oculto inicialmente -->
+<div id="listado-completo-container" style="display:none; margin-top: 10px;">
+
+  <!-- Buscador -->
+  <input 
+    type="text" 
+    id="buscar-listado-completo" 
+    placeholder="Buscar por nombre o teléfono" 
+    oninput="filtrarListadoCompleto()" 
+    style="margin-bottom: 10px; width: 100%; max-width: 400px; padding: 5px;"
+  >
+
+  <!-- Tabla de datos -->
+  <table id="tabla-listado-completo" border="1" cellpadding="5" cellspacing="0" style="width: 100%; max-width: 900px;">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Referidos</th>
+        <th>Descuento %</th>
+        <th>Regalo</th>
+        <th>Descuento reclamado</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Filas generadas dinámicamente por JS -->
+    </tbody>
+  </table>
+
+</div>
+
+
+<hr>
+
+
+
+<!-- Botón para exportar -->
+<button id="btnExportar">Exportar a Excel</button>
+
+
+
+
+<img src="Logo vacolor.png" alt="Logo Vacolor" class="ajustable2">
+
+<img src="Logo2.2.png" alt="Logo MundoPinturas" class="ajustable3">
+
+
+<script type="module" src="supabase.js"></script>
+<script type="module" src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</body>
+</html>
+
+

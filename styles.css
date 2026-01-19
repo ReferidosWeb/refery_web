@@ -1,0 +1,343 @@
+.ajustable {
+  position: absolute; /* o fixed, relative, según necesites */
+  top: -30px;          /* distancia desde arriba (ajusta este valor) */
+  left: 379px;         /* distancia desde la izquierda (ajusta este valor) */
+  width: 500px;       /* ancho de la imagen (ajusta a tu gusto) */
+  height: auto;       /* altura automática para mantener proporción */
+  /* Opcional para que se vea encima de otros elementos */
+  z-index: 1000;      
+}
+
+
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle, #a8d0ff 0%, #d1c4e9 100%);
+  margin: 0;
+  padding: 0 20px;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #4a3f78;
+}
+
+button {
+  cursor: pointer;
+  background-color: #7c85f9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #5a62c6;
+}
+
+input, select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+input:focus, select:focus {
+  border-color: #7c85f9;
+  outline: none;
+  box-shadow: 0 0 5px #7c85f9;
+}
+
+table {
+left: 379px;   
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+thead {
+  background-color: #7c85f9;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f0f0ff;
+}
+
+td, th {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead tr {
+    display: none;
+  }
+  tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  tbody td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;      /* Centra verticalmente */
+  min-height: 100vh;        /* Asegura que el body ocupe toda la altura */
+  flex-direction: column;   /* Para que los elementos apilen verticalmente */
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;  /* Centra todo horizontalmente */
+  align-items: center;      /* Centra todo verticalmente */
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* Para que todos los elementos hijos se alineen centrados */
+body > * {
+  margin: 10px 0;           /* Espacio vertical entre elementos */
+  width: 300px;             /* O un ancho fijo que quieras */
+  max-width: 90vw;          /* Para que sea responsivo y no se salga en pantallas pequeñas */
+  text-align: center;       /* Centra el texto y contenido dentro */
+}
+
+/* Si tienes inputs o botones específicos, para centrar su contenido */
+input, button, select, textarea {
+  display: block;           /* Para que el width funcione bien */
+  margin: 0 auto;           /* Centra el elemento en su contenedor */
+  text-align: center;       /* Centra el texto dentro */
+  width: 100%;              /* Que ocupen todo el ancho disponible */
+  max-width: 300px;         /* Limita el ancho para no ser muy ancho */
+}
+/* Para los inputs en el listado completo */
+#listado-completo input {
+  display: block;          /* Para que el margin auto funcione */
+  margin: 0 auto;          /* Centra horizontalmente */
+  width: 90%;              /* Ancho casi completo del contenedor (celda) */
+  max-width: 500px;        /* Máximo ancho en pantallas grandes */
+  box-sizing: border-box;  /* Para incluir padding y borde en el ancho */
+  text-align: center;      /* Centra el texto dentro del input */
+  padding: 6px 10px;
+  font-size: 16px;
+}
+
+/* Opcional: para que las celdas de la tabla estén centradas también */
+#listado-completo td, #listado-completo th {
+  text-align: center;
+  vertical-align: middle;
+}
+#listado-completo-container {
+  width: 90%;               /* Ajusta el ancho deseado */
+  max-width: 900px;         /* Máximo ancho para escritorio */
+  height: 400px;            /* Altura fija para que aparezca el scroll */
+  margin: 20px auto;        /* Centrar el contenedor */
+  border: 1px solid #ccc;   /* Borde para delimitar */
+  border-radius: 8px;       /* Opcional, bordes redondeados */
+  overflow-y: auto;         /* Scroll vertical */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra ligera para estética */
+  background-color: white;  /* Fondo blanco o el que uses */
+}
+
+/* Para que la tabla ocupe el 100% del contenedor */
+#listado-completo-container table {
+
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Opcional, para filas y celdas */
+#listado-completo-container th,
+#listado-completo-container td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+#buscador-titulo {
+  margin-top: 10 px; /* o el valor que veas más cómodo */
+  text-align: center; /* para centrar el texto si quieres */
+}
+#buscador-container {
+  padding-top: 80px; /* Espacio para bajar todo el contenido */
+}
+
+#buscador-titulo {
+  margin-top: 40px; /* margen extra si quieres */
+  text-align: center;
+}
+body {
+  padding-top: 80px;
+}
+input, select, textarea {
+  margin-bottom: 20px; /* Espacio debajo de cada casilla */
+  padding: 12px 15px;  /* Más espacio interno para que se vean más grandes */
+  font-size: 16px;     /* Texto más legible */
+  border-radius: 6px;  /* Opcional, bordes más suaves */
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* Para que padding no aumente el ancho */
+}
+table td, table th {
+  padding: 15px 20px; /* Más espacio dentro de cada celda */
+  /* Puedes agregar margin en el contenedor de la tabla si quieres más espacio alrededor */
+}
+body {
+  padding-top: 100px; /* o más si quieres */
+  margin: 0; /* para evitar margen default */
+}
+#buscador-titulo {
+  margin-top: 40px;
+  text-align: center;
+}
+#btn-registrar {
+  margin-bottom: 20px; /* Ajusta 20px a la distancia que desees */
+}
+#btn-referidos {
+  margin-top: 20px; /* Ajusta el valor según la distancia que quieres */
+}
+.boton-listado {
+  margin-bottom: 20px;
+}
+
+/* Y para el último botón, quitar margen inferior si quieres */
+.boton-listado:last-child {
+  margin-bottom: 0;
+}
+#btn-registrar {
+  display: block; /* que ocupe toda la línea, para evitar que estén lado a lado */
+  margin-bottom: 20px; /* separación debajo del botón */
+}
+
+#btn-referidos {
+  display: block;
+  margin-top: 20px; /* separación arriba */
+}
+.boton {
+  display: block;
+  margin: 20px 0; /* margen arriba y abajo */
+}
+#btn-registrar, #btn-referidos {
+  display: block;
+  margin-bottom: 20px;
+  width: 200px; /* o el ancho que desees */
+}
+#btn-registrar, #btn-referidos {
+  display: block;        /* Que cada uno ocupe línea propia */
+  margin-bottom: 20px;   /* Espacio debajo para separar */
+  width: 200px;          /* Opcional: un ancho fijo para que se vean uniformes */
+}
+#contenedor-botones {
+  display: flex;
+  flex-direction: column; /* Que los hijos se apilen verticalmente */
+  gap: 20px;              /* Espacio entre los botones */
+}
+#btn-exportar {
+  background-color: #28a745;  /* Verde tipo Excel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btn-exportar:hover {
+  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+#btn-exportar {
+  background-color: #28a745;  /* Verde tipo Excel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btn-exportar:hover {
+  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+#btnExportar {
+  background-color: #28a745;  /* Verde tipo Excel */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btnExportar:hover {
+  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+}
+.Logo {
+  position: fixed;      /* Fija la imagen en la pantalla */
+  top: 0;               /* Arriba */
+  left: 0;              /* A la izquierda */
+  width: 25px;         /* Ajusta el ancho a 150px (cámbialo a lo que necesites) */
+  height: auto;         /* La altura se ajusta automáticamente para mantener proporciones */
+  z-index: 10;        /* Para que esté encima de otros elementos */
+}
+
+.ajustable2 {
+  position: absolute; /* o fixed, relative, según necesites */
+  top: 0px;          /* distancia desde arriba (ajusta este valor) */
+  left: 50px;         /* distancia desde la izquierda (ajusta este valor) */
+  width: 400px;       /* ancho de la imagen (ajusta a tu gusto) */
+  height: auto;       /* altura automática para mantener proporción */
+  /* Opcional para que se vea encima de otros elementos */
+  z-index: 1000;      
+}
+.ajustable3 {
+  position: absolute; /* o fixed, relative, según necesites */
+  top: -20px;          /* distancia desde arriba (ajusta este valor) */
+  left: 720px;         /* distancia desde la izquierda (ajusta este valor) */
+  width: 650px;       /* ancho de la imagen (ajusta a tu gusto) */
+  height: auto;       /* altura automática para mantener proporción */
+  /* Opcional para que se vea encima de otros elementos */
+  z-index: 1000;      
+}
+
+
+
+
+
