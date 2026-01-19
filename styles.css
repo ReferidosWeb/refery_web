@@ -1,12 +1,4 @@
-.ajustable {
-  position: absolute; /* o fixed, relative, según necesites */
-  top: -30px;          /* distancia desde arriba (ajusta este valor) */
-  left: 379px;         /* distancia desde la izquierda (ajusta este valor) */
-  width: 500px;       /* ancho de la imagen (ajusta a tu gusto) */
-  height: auto;       /* altura automática para mantener proporción */
-  /* Opcional para que se vea encima de otros elementos */
-  z-index: 1000;      
-}
+
 
 
 
@@ -309,33 +301,8 @@ body {
 #btnExportar:hover {
   background-color: #218838; /* Verde más oscuro al pasar el mouse */
 }
-.Logo {
-  position: fixed;      /* Fija la imagen en la pantalla */
-  top: 0;               /* Arriba */
-  left: 0;              /* A la izquierda */
-  width: 25px;         /* Ajusta el ancho a 150px (cámbialo a lo que necesites) */
-  height: auto;         /* La altura se ajusta automáticamente para mantener proporciones */
-  z-index: 10;        /* Para que esté encima de otros elementos */
-}
 
-.ajustable2 {
-  position: absolute; /* o fixed, relative, según necesites */
-  top: 0px;          /* distancia desde arriba (ajusta este valor) */
-  left: 50px;         /* distancia desde la izquierda (ajusta este valor) */
-  width: 400px;       /* ancho de la imagen (ajusta a tu gusto) */
-  height: auto;       /* altura automática para mantener proporción */
-  /* Opcional para que se vea encima de otros elementos */
-  z-index: 1000;      
-}
-.ajustable3 {
-  position: absolute; /* o fixed, relative, según necesites */
-  top: -20px;          /* distancia desde arriba (ajusta este valor) */
-  left: 720px;         /* distancia desde la izquierda (ajusta este valor) */
-  width: 650px;       /* ancho de la imagen (ajusta a tu gusto) */
-  height: auto;       /* altura automática para mantener proporción */
-  /* Opcional para que se vea encima de otros elementos */
-  z-index: 1000;      
-}
+
 
 
 
