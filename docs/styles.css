@@ -155,7 +155,7 @@ input, button, select, textarea {
 }
 #listado-completo-container {
   width: 90%;               /* Ajusta el ancho deseado */
-  max-width: 900px;         /* Máximo ancho para escritorio */
+  max-width: 1800px;         /* Máximo ancho para escritorio */
   height: 400px;            /* Altura fija para que aparezca el scroll */
   margin: 20px auto;        /* Centrar el contenedor */
   border: 1px solid #ccc;   /* Borde para delimitar */
@@ -301,6 +301,7 @@ body {
 #btnExportar:hover {
   background-color: #218838; /* Verde más oscuro al pasar el mouse */
 }
+
 
 
 
