@@ -123,7 +123,7 @@ body {
 /* Para que todos los elementos hijos se alineen centrados */
 body > * {
   margin: 10px 0;           /* Espacio vertical entre elementos */
-  width: 300px;             /* O un ancho fijo que quieras */
+  width: 1000px;             /* O un ancho fijo que quieras */
   max-width: 90vw;          /* Para que sea responsivo y no se salga en pantallas pequeñas */
   text-align: center;       /* Centra el texto y contenido dentro */
 }
@@ -301,6 +301,7 @@ body {
 #btnExportar:hover {
   background-color: #218838; /* Verde más oscuro al pasar el mouse */
 }
+
 
 
 
