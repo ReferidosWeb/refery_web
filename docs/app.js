@@ -1,6 +1,8 @@
 import { supabase } from './supabase.js'
 
-
+//-------------------------------------------------------------------
+//INICIO DE SESION
+//-------------------------------------------------------------------
 const DOS_HORAS_EN_MS = 2 * 60 * 60 * 1000
 
 async function login() {
@@ -55,7 +57,9 @@ window.addEventListener('load', () => {
 })
 
 
-
+//----------------------------------------------------------------------------------------
+//REGISTRO DE CLIENTES
+//-----------------------------------------------------------------------------------------
 
 let ultimoClienteId = null // Para guardar el ID del cliente recién registrado
 
@@ -221,7 +225,8 @@ function normalizePhone(phone) {
 
 
 //---------------------------------------------------------------------------------------------
-
+//BUSCADOR DE CLIENTES
+//---------------------------------------------------------------------------------------------
 
 async function buscarCliente() {
   const queryRaw = document.getElementById('buscador-input').value.trim();
@@ -344,6 +349,9 @@ async function reclamarRegalo(clientId) {
 }
 
 //-----------------------------------------------------------------------------
+//LISTADO DE CLIENTES
+//-------------------------------------------------------------------
+
 
 // Variables para guardar datos y filtrar
 let clientesReferidos = []
@@ -526,6 +534,8 @@ window.filtrarListado = filtrarListado
 window.toggleListado = toggleListado
 
 //-----------------------------------------------------------------------------------------
+//EXPORTACION
+//-------------------------------------------------------------------
 
 // Asegúrate que la variable 'supabase' ya está inicializada antes de este código
 
@@ -567,6 +577,8 @@ async function exportarExcel() {
 }
 
 //-------------------------------------------------------------------------------------------
+//LISTADO COMPLETO DE CLIENTES
+//-------------------------------------------------------------------
 
 // Variables globales para manejar los clientes y estado del listado
 let clientesCompletos = [];
@@ -717,7 +729,47 @@ async function guardarCambios(clienteId, boton) {
   boton.textContent = 'Guardar';
 }
 
+//-------------------------------------------------------------------
+//CERRAR CESION
+//-------------------------------------------------------------------
+
+const logoutBtn = document.getElementById('logout-button');
+
+// Verificar usuario autenticado al cargar la página
+async function checkUser() {
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    // No hay usuario logueado, redirigir a login
+    window.location.href = 'Login.html';
+  }
+}
+
+// Evento para cerrar sesión
+logoutBtn.addEventListener('click', async () => {
+  const confirmLogout = confirm('¿Seguro que quieres cerrar sesión?');
+  if (!confirmLogout) return;
+
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    alert('Error cerrando sesión: ' + error.message);
+    return;
+  }
+
+  // Redirigir a login
+  window.location.href = 'Login.html';
+});
+
+// Ejecutar la verificación al cargar
+checkUser();
+
+
+
+
+
 // Exportar funciones globales para que el HTML las pueda usar
 window.toggleListadoCompleto = toggleListadoCompleto;
 window.filtrarListadoCompleto = filtrarListadoCompleto;
 window.guardarCambios = guardarCambios;
+
