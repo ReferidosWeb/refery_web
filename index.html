@@ -2,33 +2,19 @@
 <html lang="es">
 <head>
 
-
-
-
-
 <meta charset="UTF-8">
 <title>Sistema de Referidos</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-
-<div id="auth">
-<h2>Iniciar sesión</h2>
-<input id="email" placeholder="Correo">
-<input id="password" type="password" placeholder="Contraseña">
-<button onclick="login()">Entrar</button>
-
-
-<img src="Logo vacolor.png" alt="Logo Vacolor" class="ajustable">
-
-
-
-
+  
 </div>
 
 <br><br><br><br><br><br>
 
+<!-- ---------------------------------------------------------------------------------------- -->
+<!-- BUSCADOR DE CLIENTES -->
+<!-- ---------------------------------------------------------------------------------------- -->
 <div id="app" style="display:none;">
 <h1>Buscador de Clientes</h1>
 
@@ -37,9 +23,15 @@
   <input type="text" id="buscador-input" placeholder="Buscar por nombre o teléfono" />
   <button onclick="buscarCliente()">Buscar</button>
 
+
+
   <div id="resultado-busqueda" style="margin-top: 1em;"></div>
 </div>
 
+    <!-- ---------------------------------------------------------------------------------------- -->
+  <!-- REGISTRAR CLIENTES -->
+  <!-- ---------------------------------------------------------------------------------------- -->
+  
 
 <h2>Registrar cliente</h2>
 <input id="nombre" placeholder="Nombre completo">
@@ -56,7 +48,9 @@
  
 <br>---------------------------------------------------------------------------------------------<br>
 
-
+<!-- ------------------------------------------------------------------------ -->
+<!-- LISTADOS CON BUSQUEDA -->
+<!-- ------------------------------------------------------------------------ -->
 
  <!-- Listado clientes con referidos -->
 <div style="margin-bottom: 20px;">
@@ -162,19 +156,23 @@
 <hr>
 
 
+<!-- ------------------------------------------------------------------------ -->
+ <!-- EXPORTACION -->
+ <!-- ------------------------------------------------------------------------ -->
 
 <!-- Botón para exportar -->
 <button id="btnExportar">Exportar a Excel</button>
 
-
-
-
+<!-- ------------------------------------------------------------------------ -->
+  <!-- CIERRE DE SESION-->
+ <!-- ------------------------------------------------------------------------ -->
 
 <script type="module" src="supabase.js"></script>
 <script type="module" src="app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </body>
 </html>
+
 
 
 
