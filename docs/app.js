@@ -1,61 +1,5 @@
 import { supabase } from './supabase.js'
 
-//-------------------------------------------------------------------
-//INICIO DE SESION
-//-------------------------------------------------------------------
-const DOS_HORAS_EN_MS = 2 * 60 * 60 * 1000
-
-async function login() {
-  const email = document.getElementById('email').value
-  const password = document.getElementById('password').value
-
-  const { error, data } = await supabase.auth.signInWithPassword({ email, password })
-  if (error) {
-    console.error(error)
-    alert(error.message)
-    return
-  }
-
-  // Guardar hora del login en localStorage
-  localStorage.setItem('loginTimestamp', Date.now())
-
-  mostrarApp()
-}
-
-function mostrarApp() {
-  document.getElementById('auth').style.display = 'none'
-  document.getElementById('app').style.display = 'block'
-  cargarListados()
-}
-
-function verificarSesion() {
-  const loginTimestamp = localStorage.getItem('loginTimestamp')
-  if (!loginTimestamp) {
-    // No hay login previo
-    return false
-  }
-  const tiempoPasado = Date.now() - Number(loginTimestamp)
-  if (tiempoPasado > DOS_HORAS_EN_MS) {
-    // Más de dos horas han pasado
-    localStorage.removeItem('loginTimestamp')
-    return false
-  }
-  return true
-}
-
-window.login = login
-
-// Al cargar la página, verificar sesión
-window.addEventListener('load', () => {
-  if (verificarSesion()) {
-    mostrarApp()
-  } else {
-    // Mostrar login
-    document.getElementById('auth').style.display = 'block'
-    document.getElementById('app').style.display = 'none'
-  }
-})
-
 
 //----------------------------------------------------------------------------------------
 //REGISTRO DE CLIENTES
@@ -772,4 +716,5 @@ checkUser();
 window.toggleListadoCompleto = toggleListadoCompleto;
 window.filtrarListadoCompleto = filtrarListadoCompleto;
 window.guardarCambios = guardarCambios;
+
 
